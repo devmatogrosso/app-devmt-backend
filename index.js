@@ -4,16 +4,15 @@
 const express = require('express')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
+const jobs = require('./jobs')
 
 // Configurar Express
 const app = express()
 app.use(bodyParser.json())
 app.use(helmet())
 
-// GET
-app.get('/', (req, res) => {
-    res.send("Hello World !")
-})
+// Jobs
+app.use('/jobs', jobs)
 
 // Iniciar backend
 exports.backend = app
